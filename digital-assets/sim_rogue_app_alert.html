@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptual Rogue Mobile App Indication</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ebee; /* Light grey, typical app store background */
+            color: #1c1e21;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for scrolling if content is long */
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .app-listing-container {
+            background-color: #ffffff;
+            border: 1px solid #dddfe2;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 380px; /* Mobile-like width */
+            padding: 0; /* No padding on container, manage internally */
+            overflow: hidden; /* Clip rounded corners for internal elements */
+        }
+        .app-header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #00cc66; /* FCM Green */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 12px; /* Slightly rounded square */
+            margin-right: 15px;
+            border: 2px solid #ff0000; /* Red border indicating suspicion */
+            position: relative; /* For the 'X' mark */
+        }
+        .suspicious-mark {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        .app-info {
+            flex-grow: 1;
+        }
+        .app-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1c1e21;
+            margin: 0 0 3px 0;
+        }
+        .app-publisher {
+            font-size: 13px;
+            color: #e74c3c; /* Suspicious publisher in red */
+            font-weight: bold;
+            margin: 0 0 5px 0;
+        }
+        .app-category {
+            font-size: 12px;
+            color: #606770;
+        }
+        .install-button {
+            padding: 8px 20px;
+            background-color: #42b72a; /* Standard green install button */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 5px; /* Space for publisher text */
+        }
+        .app-details {
+            padding: 15px;
+        }
+        .detail-section {
+            margin-bottom: 15px;
+        }
+        .detail-section h3 {
+            font-size: 15px;
+            color: #1c1e21;
+            margin: 0 0 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+        .detail-section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .detail-section li {
+            font-size: 13px;
+            color: #4b4f56;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .detail-section li.suspicious {
+            color: #d9534f; /* Red for suspicious items */
+            font-weight: bold;
+        }
+        .icon-alert::before {
+            content: '⚠️'; /* Warning emoji */
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        .ratings-downloads {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            margin: 15px 0;
+        }
+        .metric {
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1c1e21;
+        }
+        .metric-label {
+            font-size: 11px;
+            color: #606770;
+        }
+        .metric.suspicious .metric-value {
+            color: #d9534f;
+        }
+        .disclaimer {
+            padding: 15px;
+            font-size: 10px;
+            color: #606770;
+            text-align: center;
+            background-color: #f0f2f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-listing-container">
+        <div class="app-header">
+            <div class="app-icon">
+                FCM
+                <div class="suspicious-mark">!</div> <!-- Visual cue on icon -->
+            </div>
+            <div class="app-info">
+                <div class="app-title">FCM Mobile Trader Pro</div>
+                <div class="app-publisher">by FCM Capital Inc. Global <span style="font-size:0.8em; color:#e74c3c;">(Unverified Publisher)</span></div>
+                <div class="app-category">Finance</div>
+            </div>
+            <button class="install-button">INSTALL</button>
+        </div>
+
+        <div class="ratings-downloads">
+            <div class="metric">
+                <div class="metric-value">3.1 ★</div>
+                <div class="metric-label">15 Ratings</div>
+            </div>
+            <div class="metric suspicious">
+                <div class="metric-value icon-alert">1K+</div>
+                <div class="metric-label">Downloads (Suspiciously Low for FCM)</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">E</div>
+                <div class="metric-label">Everyone</div>
+            </div>
+        </div>
+
+        <div class="app-details">
+            <div class="detail-section">
+                <h3>Description</h3>
+                <p style="font-size:13px; color: #4b4f56;">The BEST trading app for FCM Clients! Trade on the go. Easy and secure. Get FCM Trader Pro now!</p>
+            </div>
+
+            <div class="detail-section">
+                <h3><span class="icon-alert"></span>Permissions Requested (Suspicious)</h3>
+                <ul>
+                    <li>Access your contacts</li>
+                    <li class="suspicious icon-alert">Read your SMS messages</li>
+                    <li>Full network access</li>
+                    <li class="suspicious icon-alert">Record audio</li>
+                    <li>Access precise location (GPS and network-based)</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h3>What's New</h3>
+                <ul>
+                    <li>Minor bug fixes and "performance inprovements". <span style="color:#e74c3c; font-size:0.8em;">(typo)</span></li>
+                </ul>
+            </div>
+             <div class="detail-section">
+                <h3>Developer Contact</h3>
+                <ul>
+                    <li>Email: support.fcm.trader@freemail.example.com <span style="color:#e74c3c; font-size:0.8em;">(Freemail address)</span></li>
+                     <li>Website: fcm-trader-official-site.webnode.page <span style="color:#e74c3c; font-size:0.8em;">(Free web hosting)</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="disclaimer">
+            This is a MOCK app store listing for demonstration purposes only, highlighting potential indicators of a rogue application.
+        </div>
+    </div>
+</body>
+</html>

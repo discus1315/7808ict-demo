@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCM Account Security - secure-update-my-account.info</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5; /* Lighter, more generic background */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .verification-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            border-top: 5px solid #00cc66; /* FCM Green accent */
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00cc66; /* Green accent for logo text */
+            margin-bottom: 20px;
+        }
+        .verification-container h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: #d9534f; /* Red for urgency */
+        }
+        .verification-container p {
+            margin-bottom: 25px;
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #444;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            background-color: #fdfdfd;
+            color: #333;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .verify-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #00cc66; /* Green button */
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .verify-button:hover {
+            background-color: #00b359;
+        }
+        .disclaimer {
+            margin-top: 30px;
+            font-size: 10px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="verification-container">
+        <div class="logo">FCM Capital</div> <!-- Simple text logo -->
+        <h2>Urgent Account Verification Required!</h2>
+        <p>To ensure the continued security of your account and comply with new regulations, please verify your account details immediately. Failure to do so may result in temporary account suspension.</p>
+        <form onsubmit="alert('Verification attempt (mock)! This is a fake page.'); return false;">
+            <div class="input-group">
+                <label for="username">Username or Client ID</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="verify-button">VERIFY ACCOUNT</button>
+        </form>
+        <div class="disclaimer">
+            This is a MOCK phishing page for demonstration purposes only. Hosted on a generic domain.
+        </div>
+    </div>
+</body>
+</html>
