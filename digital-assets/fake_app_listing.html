@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnofficialStoreXYZ - FCM Trader Pro</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for longer content */
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .app-store-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px; /* More app-store like width */
+            overflow: hidden; /* To contain elements */
+        }
+        .app-header {
+            background-color: #007bff; /* A generic app store header color */
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .app-header .store-name {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .app-header .app-category {
+            font-size: 0.8em;
+            opacity: 0.8;
+        }
+
+        .app-main-info {
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px solid #eee;
+        }
+        .app-icon-container {
+            margin-right: 20px;
+            position: relative; /* For annotation */
+        }
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            background-color: #00cc66; /* FCM Green */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            border-radius: 22px; /* iOS like squircle */
+            border: 2px solid #00b359; /* Slightly darker border */
+            /* Simulate distortion - subtle skew */
+            transform: skewX(-2deg) skewY(1deg);
+        }
+        .app-details {
+            flex-grow: 1;
+            position: relative;
+        }
+        .app-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .app-developer {
+            font-size: 16px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .app-stats {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        .app-stats span { margin-right: 15px; }
+        .install-button {
+            background-color: #28a745; /* Green install button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .app-description-reviews {
+            position: relative; 
+            padding: 20px; 
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .app-description p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .review {
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .review .reviewer { font-weight: bold; font-size: 14px; color: #555;}
+        .review .rating { color: #f39c12; } /* Star color */
+        .review .comment { font-size: 13px; margin-top: 5px; color: #666;}
+
+        .annotation {
+            position: absolute;
+            background-color: rgba(255, 235, 59, 0.9); /* Yellowish */
+            color: #444;
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            border: 1px solid #fbc02d;
+            white-space: nowrap;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        .anno-icon { top: -25px; left: 10px; }
+        .anno-dev { top: 35px; left: 130px; } /* Position next to dev name */
+        .anno-downloads { top: 90px; left: 100px; } /* Position near stats */
+        .anno-reviews { bottom: 10px; right: 10px; } /* Near reviews section */
+        .anno-store {
+            position: fixed; /* Fixed to viewport for store name */
+            top: 70px; left: calc(50% - 280px); /* Adjust based on container width */
+            background-color: rgba(236, 64, 122, 0.9); /* Pinkish for store */
+            color: white; border-color: #ad1457;
+        }
+        .disclaimer {
+            padding: 15px;
+            text-align: center;
+            font-size: 10px;
+            color: #777;
+            background-color: #e9ecef;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="app-store-container">
+        <div class="app-header">
+            <span class="store-name">UnofficialStoreXYZ</span>
+            <span class="app-category">Finance / Trading Apps</span>
+        </div>
+
+        <div class="app-main-info">
+            <div class="app-icon-container">
+                <div class="app-icon">FCM</div>
+                <div class="annotation anno-icon">Slightly distorted logo</div>
+            </div>
+            <div class="app-details">
+                <div class="app-title">FCM Trader Pro</div>
+                <div class="app-developer">BestFinanceApps</div>
+                <div class="app-stats">
+                    <span>Downloads: 50+</span> <span>Rating: 4.9 ★★★★☆ (15 reviews)</span>
+                </div>
+                <button class="install-button">Install</button>
+                <div class="annotation anno-dev">Generic Developer Name</div>
+                <div class="annotation anno-downloads">Very Low Downloads</div>
+            </div>
+        </div>
+
+        <div class="app-description-reviews">
+            <div class="section-title">Description</div>
+            <div class="app-description">
+                <p>The ultimate trading experience with FCM Trader Pro! Access global markets, advanced charting tools, and secure transactions. Join thousands of satisfied traders today and elevate your portfolio. Best app for CFD and Forex!</p>
+            </div>
+
+            <div class="section-title">Reviews (15)</div>
+            <div class="review">
+                <div class="reviewer">TraderMax123 <span class="rating">★★★★★</span></div>
+                <div class="comment">Wow, amazing app! So easy to use and made so much money. Highly recommend!</div>
+            </div>
+            <div class="review">
+                <div class="reviewer">FinanceGuru <span class="rating">★★★★★</span></div>
+                <div class="comment">Best trading app ever. Flawless execution. Five stars!</div>
+            </div>
+            <div class="annotation anno-reviews">Reviews seem overly positive & generic</div>
+        </div>
+         <div class="annotation anno-store">App listed on an UNOFFICIAL store</div>
+        <div class="disclaimer">
+            This is a MOCK fake app listing for demonstration purposes.
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Alert - Potential App Impersonation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2c3e50; /* Dark background for alert system */
+            color: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .alert-panel {
+            background-color: #34495e; /* Slightly lighter panel */
+            padding: 25px 35px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            width: 100%;
+            max-width: 550px;
+        }
+        .alert-panel-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #4a627a;
+            padding-bottom: 15px;
+        }
+        .alert-icon-indicator {
+            font-size: 28px;
+            color: #e74c3c; /* Red for critical alert */
+            margin-right: 15px;
+            background-color: rgba(231, 76, 60, 0.2);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: 2px solid #c0392b;
+        }
+        .alert-panel-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #f1c40f; /* Yellow for emphasis */
+        }
+        .alert-info-item {
+            margin-bottom: 12px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .alert-info-item strong {
+            color: #bdc3c7;
+            display: inline-block;
+            min-width: 100px; /* Align labels */
+        }
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .recommendation {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #4a627a;
+            font-size: 16px;
+        }
+        .recommendation strong {
+            color: #2ecc71; /* Green for positive action */
+        }
+         .disclaimer {
+            margin-top: 25px;
+            font-size: 10px;
+            color: #7f8c8d;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="alert-panel">
+        <div class="alert-panel-header">
+            <div class="alert-icon-indicator">!</div>
+            <div class="alert-panel-title">Potential Mobile App Impersonation</div>
+        </div>
+
+        <div class="alert-info-item">
+            <strong>App Name:</strong> <span class="highlight">'FCM Trader Pro'</span>
+        </div>
+        <div class="alert-info-item">
+            <strong>Detected On:</strong> UnofficialStoreXYZ
+        </div>
+        <div class="alert-info-item">
+            <strong>Developer:</strong> BestFinanceApps
+        </div>
+        <div class="alert-info-item">
+            <strong>Threat Level:</strong> <span class="highlight">HIGH</span>
+        </div>
+        <div class="alert-info-item">
+            <strong>Analysis:</strong> Detected characteristics match common impersonation tactics (unofficial store, generic developer, low engagement metrics).
+        </div>
+
+        <div class="recommendation">
+            <strong>Recommendation:</strong> <strong>Investigate Immediately.</strong> Initiate takedown request if confirmed malicious. Alert relevant internal teams.
+        </div>
+        <div class="disclaimer">
+            This is a MOCK alert UI for demonstration purposes.
+        </div>
+    </div>
+</body>
+</html>
